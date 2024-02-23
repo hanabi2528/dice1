@@ -101,7 +101,7 @@ public final class Project extends JavaPlugin {
 
             }
         }
-        return false;
+        return false;//falseを返す
     }
 }
 
