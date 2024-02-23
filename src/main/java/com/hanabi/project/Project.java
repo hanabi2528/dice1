@@ -11,6 +11,7 @@ public final class Project extends JavaPlugin {
     @Override
     public void onEnable() {    //起動したときの処理
         Bukkit.getLogger().info("プラグインが起動しました");
+        saveDefaultConfig();
     }
 
     @Override
