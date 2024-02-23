@@ -1,0 +1,19 @@
+name: project
+version: '1.0-SNAPSHOT'
+main: com.hanabi.project.Project
+api-version: '1.20'
+
+commands:
+  dice:
+   description:  さいころを回す
+
+  mc:
+    description: 丁半を行う
+
+
+
+
+
+
+
+
