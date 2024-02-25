@@ -17,6 +17,7 @@ public final class Project extends JavaPlugin {
     @Override
     public void onDisable() {
         Bukkit.getLogger().info("プラグインが終了しました");
+        saveConfig();
     }
 
     @Override
@@ -108,10 +109,40 @@ public final class Project extends JavaPlugin {
         if (command.getName().equalsIgnoreCase("bank")) {
             Player player_sender = (Player) sender;
             String name = player_sender.getName();
+
             int money = getConfig().getInt("Player1.count");
             sender.sendMessage("現在の所持金は" + money + "円です");
 
             return true;
+        }
+
+        if (command.getName().equalsIgnoreCase("getmoney")) {
+            Player player_sender = (Player) sender;
+            String name = player_sender.getName();
+
+            if(args.length == 0){
+                Bukkit.getServer().broadcastMessage("金額を決めてください");
+                return  false;
+            }
+
+            if(args.length == 1){
+                try{
+                    int add_money = Integer.parseInt(args[0]);
+                    if (add_money >= 1) {
+                        int ex_money = getConfig().getInt("Player1.count");
+                        int money = add_money + ex_money;
+                        sender.sendMessage("銀行に" + money + "円追加しました");
+
+                        getConfig().set("Player1.count", money);
+                    }  else{
+                        Bukkit.getServer().broadcastMessage("金額は1以上の整数にしてください");
+                    }
+
+                } catch (NumberFormatException e) {
+                    Bukkit.getServer().broadcastMessage("1以上の整数を入力してください");
+                }
+
+            }
         }
         return false;
     }
