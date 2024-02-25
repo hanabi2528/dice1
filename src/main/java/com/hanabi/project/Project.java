@@ -122,7 +122,7 @@ public final class Project extends JavaPlugin {
             String name = player_sender.getName();
 
             if(args.length == 0){
-                Bukkit.getServer().broadcastMessage("金額を決めてください");
+                Bukkit.getServer().broadcastMessage(ChatColor.RED + "金額を決めてください");
                 return  false;
             }
 
