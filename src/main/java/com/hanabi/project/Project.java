@@ -1,6 +1,7 @@
 package com.hanabi.project;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -27,7 +28,7 @@ public final class Project extends JavaPlugin {
             String name = player_sender.getName();
 
             if (args.length == 0) {
-                Bukkit.getServer().broadcastMessage("面の数を入力してください");
+                Bukkit.getServer().broadcastMessage( ChatColor.RED + "面の数を入力してください");
                 return false;
             }
 
@@ -36,7 +37,7 @@ public final class Project extends JavaPlugin {
                 try { //string型の変数をint型に変更
                     int maxnumber = Integer.parseInt(args[0]);
                     if (maxnumber > 1000000) {
-                        Bukkit.getServer().broadcastMessage("面の数は1~1000000の整数にしてください");
+                        Bukkit.getServer().broadcastMessage(ChatColor.RED + "面の数は1~1000000の整数にしてください");
                         return false;
                     }
 
@@ -47,12 +48,12 @@ public final class Project extends JavaPlugin {
 
                         return true;
                     } else {
-                        Bukkit.getServer().broadcastMessage("面の数は1以上の整数にしてください");
+                        Bukkit.getServer().broadcastMessage(ChatColor.RED + "面の数は1以上の整数にしてください");
                         return false;
 
                     }
                 } catch (NumberFormatException e) {
-                    Bukkit.getServer().broadcastMessage("面の数は1以上の整数にしてください");
+                    Bukkit.getServer().broadcastMessage(ChatColor.RED + "面の数は1以上の整数にしてください");
                     return false;
                 }
             }
@@ -63,7 +64,7 @@ public final class Project extends JavaPlugin {
             String name = player_sender.getName();
 
             if (args.length == 0) {
-                Bukkit.getServer().broadcastMessage("丁の場合は1、半の場合は2を入力してください");
+                Bukkit.getServer().broadcastMessage(ChatColor.RED + "丁の場合は1、半の場合は2を入力してください");
                 return false;
             }
 
@@ -97,7 +98,7 @@ public final class Project extends JavaPlugin {
                         }
                     }
                 } catch (NumberFormatException e) {
-                    Bukkit.getServer().broadcastMessage("丁か半かを選んでください");
+                    Bukkit.getServer().broadcastMessage(ChatColor.RED + "丁か半かを選んでください");
                     return false;
 
                 }
@@ -135,11 +136,11 @@ public final class Project extends JavaPlugin {
 
                         getConfig().set("Player1.count", money);
                     }  else{
-                        Bukkit.getServer().broadcastMessage("金額は1以上の整数にしてください");
+                        Bukkit.getServer().broadcastMessage(ChatColor.RED + "金額は1以上の整数にしてください");
                     }
 
                 } catch (NumberFormatException e) {
-                    Bukkit.getServer().broadcastMessage("1以上の整数を入力してください");
+                    Bukkit.getServer().broadcastMessage(ChatColor.RED + "1以上の整数を入力してください");
                 }
 
             }
