@@ -15,7 +15,8 @@ public final class Project extends JavaPlugin {
     }
 
     @Override
-    public void onDisable() {   Bukkit.getLogger().info("プラグインが終了しました");
+    public void onDisable() {
+        Bukkit.getLogger().info("プラグインが終了しました");
     }
 
     @Override
@@ -102,9 +103,23 @@ public final class Project extends JavaPlugin {
 
             }
         }
+
+
+        if (command.getName().equalsIgnoreCase("bank")) {
+            Player player_sender = (Player) sender;
+            String name = player_sender.getName();
+            int money = getConfig().getInt("Player1.count");
+            sender.sendMessage("現在の所持金は" + money + "円です");
+
+            return true;
+        }
         return false;
     }
 }
+
+
+
+
 
 
 
