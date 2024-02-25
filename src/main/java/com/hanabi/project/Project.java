@@ -131,7 +131,7 @@ public final class Project extends JavaPlugin {
                     if (add_money >= 1) {
                         int ex_money = getConfig().getInt("Player1.count");
                         int money = add_money + ex_money;
-                        sender.sendMessage("銀行に" + money + "円追加しました");
+                        sender.sendMessage("銀行に" + add_money + "円追加しました");
 
                         getConfig().set("Player1.count", money);
                     }  else{
