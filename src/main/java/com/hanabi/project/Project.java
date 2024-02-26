@@ -138,6 +138,8 @@ public final class Project extends JavaPlugin {
                             sender.sendMessage("銀行に" + add_money + "ウォン追加しました");
                             getConfig().set("edamame.count", money);
 
+                        } else {
+                            sender.sendMessage(ChatColor.RED + "金額は1以上の整数にしてください");
                         }
                     } catch (NumberFormatException e) {
                         Bukkit.getServer().broadcastMessage(ChatColor.RED + "金額は1以上の整数にしてください");
@@ -158,6 +160,8 @@ public final class Project extends JavaPlugin {
                             sender.sendMessage("銀行に" + add_money + "ウォン追加しました");
                             getConfig().set("hanabi.count", money);
 
+                        }  else {
+                            sender.sendMessage(ChatColor.RED + "金額は1以上の整数にしてください");
                         }
                     } catch (NumberFormatException e) {
                         Bukkit.getServer().broadcastMessage(ChatColor.RED + "金額は1以上の整数にしてください");
