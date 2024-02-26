@@ -110,10 +110,10 @@ public final class Project extends JavaPlugin {
         if (command.getName().equalsIgnoreCase("bank")) {
             Player player_sender = (Player) sender;
             String name = player_sender.getName();
-            if (name == "edamame1021") {
+            if (name.equals("edamame1021")) {
                 int edamame_money = getConfig().getInt("edamame.count");
                 sender.sendMessage("現在の所持金は" + edamame_money + "ウォンです");
-            } else if (name == "Hanabi2528") {
+            } else if (name.equals("Hanabi2528")) {
                 int hanabi_money = getConfig().getInt("hanabi.count");
                 sender.sendMessage("現在の所持金は" + hanabi_money + "ウォンです");
             }
@@ -124,7 +124,7 @@ public final class Project extends JavaPlugin {
         if (command.getName().equalsIgnoreCase("getmoney")) {
             Player player_sender = (Player) sender;
             String name = player_sender.getName();
-            if (name == "edamame1021") {
+            if (name.equals("edamame1021")) {
                 if (args.length == 0) {
                     Bukkit.getServer().broadcastMessage(ChatColor.RED + "金額を決めてください");
                     return false;
@@ -144,7 +144,7 @@ public final class Project extends JavaPlugin {
 
                     }
                 }
-            } else if (name == "Hanabi2528") {
+            } else if (name.equals("Hanabi2528")) {
                 if (args.length == 0) {
                     Bukkit.getServer().broadcastMessage(ChatColor.RED + "金額を決めてください");
                     return false;
