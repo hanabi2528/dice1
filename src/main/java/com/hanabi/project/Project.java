@@ -28,7 +28,7 @@ public final class Project extends JavaPlugin {
             String name = player_sender.getName();
 
             if (args.length == 0) {
-                Bukkit.getServer().broadcastMessage( ChatColor.RED + "面の数を入力してください");
+                Bukkit.getServer().broadcastMessage(ChatColor.RED + "面の数を入力してください");
                 return false;
             }
 
@@ -110,9 +110,13 @@ public final class Project extends JavaPlugin {
         if (command.getName().equalsIgnoreCase("bank")) {
             Player player_sender = (Player) sender;
             String name = player_sender.getName();
-
-            int money = getConfig().getInt("Player1.count");
-            sender.sendMessage("現在の所持金は" + money + "ウォンです");
+            if (name == "edamame1021") {
+                int edamame_money = getConfig().getInt("edamame.count");
+                sender.sendMessage("現在の所持金は" + edamame_money + "ウォンです");
+            } else if (name == "Hanabi2528") {
+                int hanabi_money = getConfig().getInt("hanabi.count");
+                sender.sendMessage("現在の所持金は" + hanabi_money + "ウォンです");
+            }
 
             return true;
         }
@@ -121,26 +125,32 @@ public final class Project extends JavaPlugin {
             Player player_sender = (Player) sender;
             String name = player_sender.getName();
 
-            if(args.length == 0){
+            if (args.length == 0) {
                 Bukkit.getServer().broadcastMessage(ChatColor.RED + "金額を決めてください");
-                return  false;
+                return false;
             }
 
-            if(args.length == 1){
-                try{
+            if (args.length == 1) {
+                try {
                     int add_money = Integer.parseInt(args[0]);
                     if (add_money >= 1) {
-                        int ex_money = getConfig().getInt("Player1.count");
-                        int money = add_money + ex_money;
-                        sender.sendMessage("銀行に" + add_money + "ウォン追加しました");
+                        if (name == "edamame1021") {
+                            int ex_money = getConfig().getInt("edamame.count");
+                            int money = add_money + ex_money;
+                            sender.sendMessage("銀行に" + add_money + "ウォン追加しました");
+                            getConfig().set("edamame.count", money);
+                        } else if (name == "Hanabi2528") {
+                            int ex_money = getConfig().getInt("hanabi.count");
+                            int money = add_money + ex_money;
+                            sender.sendMessage("銀行に" + add_money + "ウォン追加しました");
+                            getConfig().set("hanabi.count", money);
+                        } else {
+                            Bukkit.getServer().broadcastMessage(ChatColor.RED + "金額は1以上の整数にしてください");
+                        }
 
-                        getConfig().set("Player1.count", money);
-                    }  else{
-                        Bukkit.getServer().broadcastMessage(ChatColor.RED + "金額は1以上の整数にしてください");
                     }
-
                 } catch (NumberFormatException e) {
-                    Bukkit.getServer().broadcastMessage(ChatColor.RED + "1以上の整数を入力してください");
+                    Bukkit.getServer().broadcastMessage(ChatColor.RED + "金額は1以上の整数にしてください");
                 }
 
             }
@@ -148,6 +158,9 @@ public final class Project extends JavaPlugin {
         return false;
     }
 }
+
+
+
 
 
 
