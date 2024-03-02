@@ -7,14 +7,7 @@ commands:
   dice:
    description:  さいころを回す
 
-  mc:
-    description: 丁半を行う
 
-  bank:
-    description:  所持金を見る
-
-  getmoney:
-    description: お金を入手する
 
 
 
